@@ -13,6 +13,15 @@ shm:
     cargo build --release --bin shm_parent
     cp $CARGO_TARGET_DIR/release/shm_parent ./
 
+waiting_shm:
+    cargo build --release --bin waiting_shm_child
+    cp $CARGO_TARGET_DIR/release/waiting_shm_child ./
+    cargo build --release --bin waiting_shm_parent
+    cp $CARGO_TARGET_DIR/release/waiting_shm_parent ./
+
+run_wait:
+    ./waiting_shm_parent
+
 run_shm:
     ./shm_parent
 
